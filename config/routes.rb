@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :products, only: :index do
     resources :bids, only: :create
   end
