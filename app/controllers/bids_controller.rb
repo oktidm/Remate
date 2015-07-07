@@ -2,13 +2,18 @@
 
 class BidsController < ApplicationController
 	before_action :authenticate_user!
+	load_and_authorize_resource
 
 	
 	def create
+		if can? :create, Bid
 		@product = Product.find(params[:product_id])
 		@bid = @product.bids.build(bid_params)
 		@bid.save
-		redirect_to products_path
+			redirect_to root_url
+		else
+			redirect_to pages_landing_page_path
+		end
 	end
 
 	private

@@ -1,5 +1,6 @@
 
 <%= form_for ([product, Bid.new]) do |f| %>
+<%= f.number_field :amount %>
 <%= product.name %>
 <%= f.submit "Ofertar"%>
 <% end %>

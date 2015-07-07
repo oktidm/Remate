@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Página de Remates
+    
+  body
+    
+
+    #notice
+      p class= "notice"  style="color:green" = notice
+
+    #alert
+      p class= "alert" style="color:red" = alert
+
+    
+
+    - if user_signed_in?
+      == link_to('Logout', destroy_user_session_path) 
+    - else
+      == link_to('Login', new_user_session_path)
+
+
+  == yield

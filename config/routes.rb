@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/landing_page'
+
   devise_for :users
   resources :products, only: :index do
     resources :bids, only: :create
